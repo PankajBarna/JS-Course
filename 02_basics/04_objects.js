@@ -43,7 +43,22 @@ const obj3 = Object.assign({}, obj1, obj2)      //better to add "{}" and empty o
 // console.log(Object.values(tinderUser).length)
 
 //to get key value pairs in arrays
-console.log(Object.entries(tinderUser))     //o/p "[ [ 'id', '123abc' ], [ 'name', 'Pankaj' ], [ 'isLoggedIn', false ] ]"
+// console.log(Object.entries(tinderUser))     //o/p "[ [ 'id', '123abc' ], [ 'name', 'Pankaj' ], [ 'isLoggedIn', false ] ]"
 
 //we can also ask object if it has any key (doesn't work for values)
-console.log(tinderUser.hasOwnProperty("name"))      //o/p true
+// console.log(tinderUser.hasOwnProperty("name"))      //o/p true
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//Deconstructing objects
+const course = {
+    courseName: "JavaScript",
+    price: 999,
+    courseInstructor: "Pankaj"
+}
+
+const{courseName} = course      //deconstructing
+console.log(courseName)
+
+// we can also assign a variable
+const{courseInstructor:Instructor} = course     //here "Instructor is a variable"
+console.log(Instructor)
