@@ -1,4 +1,5 @@
 // making objects using object literals
+
 // const JsUser = {
 //     name: "Pankaj",
 //     "full name": "Pankaj Kumar",
