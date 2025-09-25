@@ -5,7 +5,7 @@
 
 # Solution code
 
-## Project 1
+## Project 1 - Background color changer
 
 ```javascript
 const buttons = document.querySelectorAll('.button');
@@ -34,7 +34,7 @@ buttons.forEach((button) => {
 
 ```
 
-## Project 2
+## Project 2 - BMI Calculator
 
 ```javascript
 const form = document.querySelector('form');
@@ -63,5 +63,18 @@ form.addEventListener('submit', function (e) {
     }
   }
 });
+
+```
+
+## Project 3 - Digital Clock
+
+```javascript
+const clock = document.getElementById('clock');
+
+// setInterval(function(){},1000)   ---------syntax for set interval function, 1000 = 1sec
+setInterval(function () {
+  let date = new Date();
+  clock.innerHTML = date.toLocaleTimeString();
+}, 1000);
 
 ```
