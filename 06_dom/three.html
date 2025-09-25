@@ -7,7 +7,7 @@
     <title>DOM</title>
 </head>
 
-<body style="background-color: #2f2f2f; color: #ffffff;">
+<body style="background-color: #757575; color: #ffffff;">
 
 
 </body>
@@ -56,6 +56,27 @@
         document.body.appendChild(button)
         
     }
+
+    //Creating elements using array of objects +++++++++++++++++++++++++++++++++++++++++++++++++++++
+    const buttonProps = [
+        {color: "red", text: "Button 1"},
+        {color: "orange", text: "Button 2"},
+        {color: "violet", text: "Button 3"},
+        {color: "green", text: "Button 4"},
+        ]
+
+        buttonProps.forEach(({color,text}) => {
+            const btn = document.createElement("button")
+            btn.innerText = text
+            btn.style.backgroundColor = color
+            btn.style.border = "none"
+            btn.style.padding = ".75rem 1.5rem"
+            btn.style.display = "flex"
+            btn.style.borderRadius = "10px"
+            btn.style.margin = "15px"
+            btn.style.boxShadow = "5px 5px black"
+            document.body.appendChild(btn)
+        })
 
 </script>
 
