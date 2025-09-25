@@ -53,7 +53,14 @@ form.addEventListener('submit', function (e) {
     result.innerHTML = `Please give correct weight ${weight}`;
   } else {
     const bmi = (weight / ((height * height) / 10000)).toFixed(2); //calculate bmi and convert it to 2 decimal places
-    result.innerHTML = `${bmi}`;
+    // result.innerHTML = `<span>${bmi}</span>`;
+    if (bmi > 24.9) {
+      result.innerHTML = `<span>${bmi}</span> <span>Overweight</span>`;
+    } else if (bmi < 24.9 && bmi >= 18.6) {
+      result.innerHTML = `<span>${bmi}</span> <span>Normal Weight</span>`;
+    } else {
+      result.innerHTML = `<span>${bmi}</span> <span>Under Weight</span>`;
+    }
   }
 });
 
