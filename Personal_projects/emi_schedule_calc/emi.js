@@ -12,7 +12,8 @@ function emiSchedule() {
     let amount = document.getElementById('amount').value;
     let teneure = document.getElementById('years').value;
     let interest = document.getElementById('interest').value;
-    let date = document.getElementById('date').value;
+    let paymentDate = new Date(document.getElementById("date").value);
+
 
     const tableContainer = document.querySelector(".table-container");
     tableContainer.innerHTML = ""
@@ -49,6 +50,7 @@ function emiSchedule() {
     let closingPrinciple;
     let principlePayment;
     let interestPayment;
+    // let paymentDate = new Date("01-01-2025")
 
 
     for (let i = 1; i <= N; i++) {
@@ -60,24 +62,29 @@ function emiSchedule() {
         let td5 = document.createElement('td');
         let td6 = document.createElement('td');
         let td7 = document.createElement('td');
-        
+
         td1.innerText = i;
+        td2.innerText = paymentDate.toLocaleDateString("en-IN")
+        // td2.innerText = date.toLocaleDateString("en-IN");
         td3.innerText = (startingPrinciple);
         td4.innerText = `${emi}`
 
-        interestPayment = startingPrinciple*R;
+        interestPayment = startingPrinciple * R;
         principlePayment = emi - interestPayment;
-        closingPrinciple = (startingPrinciple-principlePayment).toFixed(2);
+        closingPrinciple = (startingPrinciple - principlePayment).toFixed(2);
 
         td6.innerText = (interestPayment).toFixed(2);
         td5.innerText = (emi - interestPayment).toFixed(2);
         td7.innerText = (startingPrinciple - principlePayment).toFixed(2)
 
 
-        tr.append(td1,td2,td3,td4,td5,td6,td7)
+        tr.append(td1, td2, td3, td4, td5, td6, td7)
         tbody.appendChild(tr)
-        
+
         startingPrinciple = closingPrinciple;
+        // ⬇️ reduce 1 month from the date
+        paymentDate.setMonth(paymentDate.getMonth() + 1);
+        // date.setMonth(date.getMonth() - 1);
 
     }
     table.appendChild(tbody)
