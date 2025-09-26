@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #2f2f2f;
+    color: whitesmoke;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16pt;
+}
+
+.main-container {
+    padding: 2rem 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 100px;
+    
+}
+
+.input-container{
+    padding: 2.5rem;
+    box-shadow: 2px 2px 12px #0f0f0f;
+    border-radius: .5rem;
+}
+
+form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    gap: 1rem;
+
+    .form-group {
+        margin-top: 8px;
+        display: flex;
+        gap: 16px;
+        justify-content: space-between;
+
+        input {
+            font-size: 11pt;
+            padding: .3rem;
+            border: none;
+            border-radius: .2rem;
+        }
+
+        input:focus {
+            outline-offset: 2px;
+            outline: 2px solid rgb(255, 166, 0);
+
+        }
+    }
+
+    button {
+        margin-top: 26px;
+        font-size: 18px;
+        padding: .5rem .75rem;
+        background-color: greenyellow;
+        outline: none;
+        border: none;
+        border-radius: .2rem;
+    }
+
+}
+
+.table-container{
+    width: 80%;
+    padding: 2.5rem;
+    background-color: #3f3f3f;
+    box-shadow: 2px 2px 12px #0f0f0f;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+
+}
+
+/* .table-container {
+        background-color: #3f3f3f;
+        padding: 12px;
+        border-radius: .5rem;
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        box-shadow: 2px 2px 12px #131313;
+    } */
+
+    table {
+        width: 100%;
+        /* table spans container */
+        border-collapse: collapse;
+        border: 1px solid #444;
+    }
+
+    thead,
+    tbody {
+        width: 100%;
+        /* force head + body to take full table width */
+    }
+    thead{
+        font-size: 18px;
+        th{
+            font-weight: 500;
+        }
+        
+    }
+
+    tr {
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #444;
+        padding: 8px;
+        text-align: center;
+        /* width: 50%; */
+        /* each column takes half of table */
+    }
