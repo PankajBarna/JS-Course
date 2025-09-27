@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <h1>Pankaj Kumar</h1>
+    <h2>JavaScript Course</h2>
+    <button>Clear Timeout</button>
+</body>
+<script>
+    //setTimeout is used to perform an operation after given time, 2sec here++++++++++++++++++
+    setTimeout(function(){                              
+        console.log("Hare Krishana")
+    },2000)
+
+    //Changing h1 using setTimeout+++++++++++++++++++++++++++++++++++++++++++
+    setTimeout(function(){
+        const title = document.querySelector('h1')
+        title.innerHTML = "Best of Luck"
+    },3000)
+
+    //Using function reference
+    const newHeading = function(){
+        const subTitle = document.querySelector('h2');
+        subTitle.innerHTML = "React Course"
+    }
+    const changeHeading = setTimeout(newHeading, 4000)            //function reference used here
+
+    //clearTimeout is used to clear the timeout requests++++++++++++++++++++++++++++++++++++++
+
+    let btn = document.querySelector('button')
+    btn.addEventListener('click',function(){
+        clearTimeout(changeHeading);
+        console.log('stopped')
+    },false)
+
+
+</script>
+</html>

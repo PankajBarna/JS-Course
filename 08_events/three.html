@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Pankaj Kumar</h1>
+    <h2>JavaScript Course</h2>
+    <button id="start">Start Timeout</button>
+    <button id="stop">Stop Timeout</button>
+    <div style="margin-top: 50px;">
+        <button id="startColor">Start Color</button>
+        <button id="stopColor">Stop Color</button>
+    </div>
+
+</body>
+<script>
+
+    //setInterval is used to perform a task after every time interval+++++++++++++++++++++++++++++++++++++
+    const sayDate = function (str) {
+        console.log(str, Date.now());
+    }
+
+    const startInt = setInterval(sayDate, 1000, "Pankaj")
+
+    const stopInt = clearInterval(startInt);
+
+    //Start and stop using buttons++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    const start = document.querySelector('#start')
+    const stop = document.querySelector('#stop')
+
+    start.addEventListener('click', function () {
+        return ola = setInterval(sayDate, 1000, "Hanish")
+    })
+    stop.addEventListener('click', function () {
+        clearInterval(ola)
+    })
+
+    //Unlimited colors using settimeout+++++++++++++++++++++
+
+
+    const randomColor = function () {
+        const hex = '0123456789ABCDEF'
+        let color = '#'
+        for (let i = 0; i < 6; i++) {                           //this loop generates six digits for hex numbers
+            color += hex[Math.floor(Math.random() * 16)]        //generates random number form 0 to 16; hex[index] = letter from string "hex" is appended to color which already have #. This happens 6 times as loop runs and then we get a random hex code(eg. #a345ff)
+        }
+        return color
+    }
+
+    const startColor = document.querySelector('#startColor')
+    const stopColor = document.querySelector('#stopColor')
+
+    let colStart;
+    // console.log(colStart)
+
+    const startChangingColor = function () {
+        if(!colStart){
+            colStart = setInterval(changeBgColor, 1000);
+        }
+        function changeBgColor() {
+            document.body.style.backgroundColor = randomColor();
+        }
+    }
+
+    const stopChangingColor = function () {
+        clearInterval(colStart);
+        colStart = null;
+    }
+
+    startColor.addEventListener('click', startChangingColor)
+
+    stopColor.addEventListener('click', stopChangingColor)
+
+
+
+</script>
+
+</html>
