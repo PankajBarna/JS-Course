@@ -26,7 +26,7 @@ function emiSchedule() {
     let N = teneure * 12;
     let R = interest / 12 / 100;
 
-    let emi = ((amount * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1)).toFixed(2)
+    const emi = ((amount * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1))
 
     let table = document.createElement('table');
     let thead = document.createElement('thead');
@@ -51,11 +51,12 @@ function emiSchedule() {
 
     let tbody = document.createElement('tbody');
 
-    let startingPrinciple = amount;
+    let startingPrinciple = parseInt(amount);
     let closingPrinciple;
     let principlePayment;
     let interestPayment;
     let totalInterest = 0;
+    // console.log(typeof amount)
 
     for (let i = 1; i <= N; i++) {
         let tr = document.createElement('tr');
@@ -69,22 +70,22 @@ function emiSchedule() {
 
         td1.innerText = i;
         td2.innerText = formatDate(paymentDate);
-        // td2.style.textAlign = "left";
 
-        td3.innerText = startingPrinciple
-        td4.innerText = `${emi}`
+        td3.innerText = startingPrinciple.toLocaleString("en-IN", { style: "currency", currency: "INR", minimumFractionDigits: 2 });
 
-        interestPayment = startingPrinciple * R;
+        interestPayment = (startingPrinciple * R);
         principlePayment = emi - interestPayment;
         totalInterest += interestPayment;  // <-- accumulate
         
-        closingPrinciple = (startingPrinciple - principlePayment).toFixed(2);
+        closingPrinciple = (startingPrinciple - principlePayment);
 
-        td6.innerText = (interestPayment).toFixed(2);
-        td5.innerText = (emi - interestPayment).toFixed(2);
-        td7.innerText = (startingPrinciple - principlePayment).toFixed(2)
+        td4.innerText = emi.toLocaleString("en-IN", { style: "currency", currency: "INR", minimumFractionDigits: 2 });
+        td6.innerText = interestPayment.toLocaleString("en-IN", { style: "currency", currency: "INR", minimumFractionDigits: 2 });
+        td5.innerText = principlePayment.toLocaleString("en-IN", { style: "currency", currency: "INR", minimumFractionDigits: 2 });
+        td7.innerText = closingPrinciple.toLocaleString("en-IN", { style: "currency", currency: "INR", minimumFractionDigits: 2 });
 
-
+        // console.log(typeof emi)
+        // console.log(typeof interestPayment)
         tr.append(td1, td2, td3, td4, td5, td6, td7)
         tbody.appendChild(tr)
 
@@ -92,8 +93,6 @@ function emiSchedule() {
         // reduce 1 month from the date
         paymentDate.setMonth(paymentDate.getMonth() + 1);
     }
-    console.log(totalInterest);
-
 
     const headingText = document.createElement('h3')
     headingText.innerText = "EMI Schedule"
@@ -101,7 +100,6 @@ function emiSchedule() {
     const interestTotal = document.createElement('div')
     interestTotal.innerText = `Total Interest : ${totalInterest.toLocaleString('en-IN',{style:"currency",currency:"INR",maximumFractionDigits:1,minimumFractionDigits:1})}`
     interestTotal.style.textAlign = "right"
-    interestTotal.style.padding = 0
     interestTotal.style.fontSize = "18px"
 
     table.appendChild(tbody)
