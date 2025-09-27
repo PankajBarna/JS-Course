@@ -19,7 +19,8 @@ new Chart(ctx, {
                 beginAtZero: true,
                 position: 'left',
                 title:'Numbers'
-            }
+            },
+           
         },
         plugins:{
             title:{
@@ -39,3 +40,4 @@ new Chart(ctx, {
     }
 });
 
+new Chart
