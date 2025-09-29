@@ -27,7 +27,7 @@ const promiseOne = new Promise(function(resolve, reject){
 //Another promise +++++++++++++++++++++++++++++++++++++++++++
 // new Promise(function(resolve, reject){
 //     setTimeout(function(){
-//         resolve({username:"Chai", email:"chaiaurcode@example.com"})             //the data is resolve is passed to "then"
+//         resolve({username:"Chai", email:"chaiaurcode@example.com"})             //the data in resolve is passed to "then"
 //     },1000)
 // }).then(function(user){                         //here, the parameter in function of then gets data from resolve above
 //     console.log(user)
